@@ -49,12 +49,37 @@ import ReactDOM from "react-dom/client";
 function App() {
     return (
         <div>
-            <h1>Hello React!</h1>
+            <Header />
+            <Menu />
+            <Footer />
+        </div>
+    );
+}
+
+function Header() {
+    return <h1>{}Fast React Pizza GmbH.</h1>;
+}
+
+function Menu() {
+    return (
+        <div>
+            <h2>Our Menu</h2>
             <Pizza />
             <Pizza />
             <Pizza />
         </div>
     );
+}
+
+function Footer() {
+    return (
+        <footer>
+            <p>{new Date().toLocaleTimeString()}, we're currently open.</p>
+            <p>© 2024 Fast React Pizza GmbH.</p>
+        </footer>
+    );
+
+    // return React.createElement("footer", null, "© 2024 Fast React Pizza GmbH.");
 }
 
 function Pizza() {
