@@ -72,12 +72,39 @@ function Menu() {
 }
 
 function Footer() {
-    return (
-        <footer>
-            <p>{new Date().toLocaleTimeString()}, we're currently open.</p>
-            <p>© 2024 Fast React Pizza GmbH.</p>
-        </footer>
-    );
+    const hour = new Date().getHours();
+    // console.log(hour);
+    // if (hour < 11 || hour > 20) {
+    //     return <footer>Sorry, we're currently closed.</footer>;
+    // }
+    const openHour = 10;
+    const closeHour = 22;
+    const isOpen = hour >= openHour && hour <= closeHour;
+    console.log(isOpen);
+    if (!isOpen) {
+        return (
+            <footer>
+                <p>
+                    {new Date().toLocaleTimeString()}, Sorry, we're currently
+                    closed.
+                </p>
+                <p>© 2024 Fast React Pizza GmbH.</p>
+            </footer>
+        );
+    } else {
+        return (
+            <footer>
+                <p>{new Date().toLocaleTimeString()}, Welcome! We're open.</p>
+                <p>© 2024 Fast React Pizza GmbH.</p>
+            </footer>
+        );
+    }
+    // return (
+    //     <footer>
+    //         <p>{new Date().toLocaleTimeString()}, {programMessage} </p>
+    //         <p>© 2024 Fast React Pizza GmbH.</p>
+    //     </footer>
+    // );
 
     // return React.createElement("footer", null, "© 2024 Fast React Pizza GmbH.");
 }
