@@ -94,6 +94,24 @@ function Menu() {
                 photoName="pizzas/funghi.jpg"
                 price={10}
             />
+            <Pizza
+                name="Pizza Salamino"
+                ingredients="Tomato, mozarella, and pepperoni"
+                photoName="pizzas/salamino.jpg"
+                price={11}
+            />
+            <Pizza
+                name="Pizza Spinaci"
+                ingredients="Tomato, mozarella, spinach, and ricotta cheese"
+                photoName="pizzas/spinaci.jpg"
+                price={10}
+            />
+            <Pizza
+                name="Focaccia"
+                ingredients="Bread with italian olive oil and rosemary"
+                photoName="pizzas/focaccia.jpg"
+                price={6}
+            />
         </main>
     );
 }
