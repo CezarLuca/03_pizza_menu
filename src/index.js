@@ -153,24 +153,40 @@ function Footer() {
     const closeHour = 22;
     const isOpen = hour >= openHour && hour <= closeHour;
     // console.log(isOpen);
-    if (!isOpen) {
-        return (
-            <footer className="footer">
-                <p>
-                    {new Date().toLocaleTimeString()}, Sorry, we're currently
-                    closed.
-                </p>
-                <p>© 2024 Fast React Pizza GmbH.</p>
-            </footer>
-        );
-    } else {
-        return (
-            <footer>
-                <p>{new Date().toLocaleTimeString()}, Welcome! We're open.</p>
-                <p>© 2024 Fast React Pizza GmbH.</p>
-            </footer>
-        );
-    }
+
+    return (
+        <footer className="footer">
+            {isOpen && (
+                <div className="order">
+                    <p>
+                        Welcome! We're open until {closeHour}:00. Come visit us
+                        or order online.
+                    </p>
+                    <button className="btn">Order now</button>
+                </div>
+            )}
+        </footer>
+    );
+
+    // if (!isOpen) {
+    //     return (
+    //         <footer className="footer">
+    //             <p>
+    //                 {new Date().toLocaleTimeString()}, Sorry, we're currently
+    //                 closed.
+    //             </p>
+    //             <p>© 2024 Fast React Pizza GmbH.</p>
+    //         </footer>
+    //     );
+    // } else {
+    //     return (
+    //         <footer>
+    //             <p>{new Date().toLocaleTimeString()}, Welcome! We're open.</p>
+    //             <p>© 2024 Fast React Pizza GmbH.</p>
+    //         </footer>
+    //     );
+    // }
+
     // return (
     //     <footer>
     //         <p>{new Date().toLocaleTimeString()}, {programMessage} </p>
