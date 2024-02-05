@@ -149,6 +149,22 @@ function Menu() {
 
 function Pizza(props) {
     console.log(props);
+
+    // if (props.pizzaObj.soldOut) {
+    //     return (
+    //         <li className="pizza sold-out">
+    //             <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
+    //             <div>
+    //                 <h3>{props.pizzaObj.name}</h3>
+    //                 <p>{props.pizzaObj.ingredients}</p>
+    //                 <span>Sold out</span>
+    //             </div>
+    //         </li>
+    //     );
+    // }
+
+    if (props.pizzaObj.soldOut) return null;
+
     return (
         <li className="pizza">
             <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
