@@ -79,15 +79,21 @@ function Header() {
 }
 
 function Menu() {
+    const pizzas = pizzaData;
+    // const pizzas = [];
+    const noPizzasChecker = pizzas.length > 0;
+    // const numPizzas = 0;
     return (
         <main className="menu">
             <h2>Our Menu</h2>
 
-            <ul className="pizzas">
-                {pizzaData.map((pizza) => (
-                    <Pizza key={pizza.keyId} pizzaObj={pizza} />
-                ))}
-            </ul>
+            {noPizzasChecker && (
+                <ul className="pizzas">
+                    {pizzaData.map((pizza) => (
+                        <Pizza key={pizza.keyId} pizzaObj={pizza} />
+                    ))}
+                </ul>
+            )}
 
             {/* <Pizza
                 name="Pizza Prosciutto"
