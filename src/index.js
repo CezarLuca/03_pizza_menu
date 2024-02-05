@@ -87,13 +87,25 @@ function Menu() {
         <main className="menu">
             <h2>Our Menu</h2>
 
-            {noPizzasChecker && (
+            {noPizzasChecker ? (
                 <ul className="pizzas">
                     {pizzaData.map((pizza) => (
                         <Pizza key={pizza.keyId} pizzaObj={pizza} />
                     ))}
                 </ul>
+            ) : (
+                <p>
+                    We're still working on our menu. Please come back later :)
+                </p>
             )}
+
+            {/* {noPizzasChecker && (
+                <ul className="pizzas">
+                    {pizzaData.map((pizza) => (
+                        <Pizza key={pizza.keyId} pizzaObj={pizza} />
+                    ))}
+                </ul>
+            )} */}
 
             {/* <Pizza
                 name="Pizza Prosciutto"
@@ -162,7 +174,7 @@ function Footer() {
 
     return (
         <footer className="footer">
-            {isOpen && (
+            {isOpen ? (
                 <div className="order">
                     <p>
                         Welcome! We're open until {closeHour}:00. Come visit us
@@ -170,6 +182,11 @@ function Footer() {
                     </p>
                     <button className="btn">Order now</button>
                 </div>
+            ) : (
+                <p>
+                    Sorry, we're currently closed. We open at {openHour}:00
+                    tomorrow.
+                </p>
             )}
         </footer>
     );
