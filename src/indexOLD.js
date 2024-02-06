@@ -69,6 +69,8 @@ function Header() {
         fontSize: "32px",
         textTransform: "uppercase",
     };
+    // const styles = {};
+
     return (
         <header className="header">
             <h1 style={styles}>Fast React Pizza GmbH.</h1>
@@ -78,7 +80,9 @@ function Header() {
 
 function Menu() {
     const pizzas = pizzaData;
+    // const pizzas = [];
     const noPizzasChecker = pizzas.length > 0;
+    // const numPizzas = 0;
     return (
         <main className="menu">
             <h2>Our Menu</h2>
@@ -94,12 +98,70 @@ function Menu() {
                     We're still working on our menu. Please come back later :)
                 </p>
             )}
+
+            {/* {noPizzasChecker && (
+                <ul className="pizzas">
+                    {pizzaData.map((pizza) => (
+                        <Pizza key={pizza.keyId} pizzaObj={pizza} />
+                    ))}
+                </ul>
+            )} */}
+
+            {/* <Pizza
+                name="Pizza Prosciutto"
+                ingredients="Tomato, mozarella, ham, aragula, and burrata cheese"
+                photoName="pizzas/prosciutto.jpg"
+                price={12}
+            />
+            <Pizza
+                name="Pizza Margherita"
+                ingredients="Tomato and mozarella"
+                photoName="pizzas/margherita.jpg"
+                price={8}
+            />
+            <Pizza
+                name="Pizza Funghi"
+                ingredients="Tomato, mozarella, mushrooms, and onion"
+                photoName="pizzas/funghi.jpg"
+                price={10}
+            />
+            <Pizza
+                name="Pizza Salamino"
+                ingredients="Tomato, mozarella, and pepperoni"
+                photoName="pizzas/salamino.jpg"
+                price={11}
+            />
+            <Pizza
+                name="Pizza Spinaci"
+                ingredients="Tomato, mozarella, spinach, and ricotta cheese"
+                photoName="pizzas/spinaci.jpg"
+                price={10}
+            />
+            <Pizza
+                name="Focaccia"
+                ingredients="Bread with italian olive oil and rosemary"
+                photoName="pizzas/focaccia.jpg"
+                price={6}
+            /> */}
         </main>
     );
 }
 
 function Pizza(props) {
-    // console.log(props);
+    console.log(props);
+
+    // if (props.pizzaObj.soldOut) {
+    //     return (
+    //         <li className="pizza sold-out">
+    //             <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
+    //             <div>
+    //                 <h3>{props.pizzaObj.name}</h3>
+    //                 <p>{props.pizzaObj.ingredients}</p>
+    //                 <span>Sold out</span>
+    //             </div>
+    //         </li>
+    //     );
+    // }
 
     if (props.pizzaObj.soldOut) return null;
 
@@ -117,15 +179,27 @@ function Pizza(props) {
 
 function Footer() {
     const hour = new Date().getHours();
+    // console.log(hour);
+    // if (hour < 11 || hour > 20) {
+    //     return <footer>Sorry, we're currently closed.</footer>;
+    // }
     const openHour = 10;
     const closeHour = 22;
     const isOpen = hour >= openHour && hour <= closeHour;
+    // console.log(isOpen);
 
     return (
         <footer className="footer">
             {isOpen ? (
                 <OrderButton closeHours={closeHour} />
             ) : (
+                // <div className="order">
+                //     <p>
+                //         Welcome! We're open until {closeHour}:00. Come visit us
+                //         or order online.
+                //     </p>
+                //     <button className="btn">Order now</button>
+                // </div>
                 <p>
                     Sorry, we're currently closed. We open at {openHour}:00
                     tomorrow.
@@ -133,6 +207,34 @@ function Footer() {
             )}
         </footer>
     );
+
+    // if (!isOpen) {
+    //     return (
+    //         <footer className="footer">
+    //             <p>
+    //                 {new Date().toLocaleTimeString()}, Sorry, we're currently
+    //                 closed.
+    //             </p>
+    //             <p>© 2024 Fast React Pizza GmbH.</p>
+    //         </footer>
+    //     );
+    // } else {
+    //     return (
+    //         <footer>
+    //             <p>{new Date().toLocaleTimeString()}, Welcome! We're open.</p>
+    //             <p>© 2024 Fast React Pizza GmbH.</p>
+    //         </footer>
+    //     );
+    // }
+
+    // return (
+    //     <footer>
+    //         <p>{new Date().toLocaleTimeString()}, {programMessage} </p>
+    //         <p>© 2024 Fast React Pizza GmbH.</p>
+    //     </footer>
+    // );
+
+    // return React.createElement("footer", null, "© 2024 Fast React Pizza GmbH.");
 }
 
 function OrderButton(props) {
