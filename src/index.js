@@ -6,7 +6,7 @@ const pizzaData = [
     {
         name: "Focaccia",
         ingredients: "Bread with italian olive oil and rosemary",
-        price: 6,
+        price: 4,
         photoName: "pizzas/focaccia.jpg",
         soldOut: false,
         keyId: 1,
@@ -14,7 +14,7 @@ const pizzaData = [
     {
         name: "Pizza Margherita",
         ingredients: "Tomato and mozarella",
-        price: 10,
+        price: 6,
         photoName: "pizzas/margherita.jpg",
         soldOut: false,
         keyId: 2,
@@ -22,7 +22,7 @@ const pizzaData = [
     {
         name: "Pizza Spinaci",
         ingredients: "Tomato, mozarella, spinach, and ricotta cheese",
-        price: 12,
+        price: 8,
         photoName: "pizzas/spinaci.jpg",
         soldOut: false,
         keyId: 3,
@@ -30,7 +30,7 @@ const pizzaData = [
     {
         name: "Pizza Funghi",
         ingredients: "Tomato, mozarella, mushrooms, and onion",
-        price: 12,
+        price: 8,
         photoName: "pizzas/funghi.jpg",
         soldOut: false,
         keyId: 4,
@@ -38,7 +38,7 @@ const pizzaData = [
     {
         name: "Pizza Salamino",
         ingredients: "Tomato, mozarella, and pepperoni",
-        price: 15,
+        price: 10,
         photoName: "pizzas/salamino.jpg",
         soldOut: true,
         keyId: 5,
@@ -46,7 +46,7 @@ const pizzaData = [
     {
         name: "Pizza Prosciutto",
         ingredients: "Tomato, mozarella, ham, aragula, and burrata cheese",
-        price: 18,
+        price: 12,
         photoName: "pizzas/prosciutto.jpg",
         soldOut: false,
         keyId: 6,
@@ -71,7 +71,7 @@ function Header() {
     };
     return (
         <header className="header">
-            <h1 style={styles}>Fast React Pizza GmbH.</h1>
+            <h1 style={styles}>Fast React Pizza GmbH</h1>
         </header>
     );
 }
@@ -110,16 +110,23 @@ function Menu() {
 // function Pizza(props) {
 function Pizza({ pizzaObj }) {
     // console.log(pizzaObj);
+    const pizzaPrice = (pizzaObj.price + 1).toString();
 
-    if (pizzaObj.soldOut) return null;
+    // if (pizzaObj.soldOut) return null;
 
     return (
-        <li className="pizza">
+        <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
             <img src={pizzaObj.photoName} alt={pizzaObj.name} />
             <div>
                 <h3>{pizzaObj.name}</h3>
                 <p>{pizzaObj.ingredients}</p>
-                <span>{pizzaObj.price + 1} €</span>
+
+                {/* {pizzaObj.soldOut ? (
+                    <span>Sold Out</span>
+                ) : (
+                    <span>{pizzaPrice}€</span>
+                )} */}
+                <span>{pizzaObj.soldOut ? "Sold Out" : `${pizzaPrice}€`}</span>
             </div>
         </li>
     );
