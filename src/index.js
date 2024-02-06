@@ -191,14 +191,15 @@ function Footer() {
     return (
         <footer className="footer">
             {isOpen ? (
-                <div className="order">
-                    <p>
-                        Welcome! We're open until {closeHour}:00. Come visit us
-                        or order online.
-                    </p>
-                    <button className="btn">Order now</button>
-                </div>
+                <OrderButton closeHours={closeHour} />
             ) : (
+                // <div className="order">
+                //     <p>
+                //         Welcome! We're open until {closeHour}:00. Come visit us
+                //         or order online.
+                //     </p>
+                //     <button className="btn">Order now</button>
+                // </div>
                 <p>
                     Sorry, we're currently closed. We open at {openHour}:00
                     tomorrow.
@@ -234,6 +235,18 @@ function Footer() {
     // );
 
     // return React.createElement("footer", null, "© 2024 Fast React Pizza GmbH.");
+}
+
+function OrderButton(props) {
+    return (
+        <div className="order">
+            <p>
+                Welcome! We're open until {props.closeHours}:00. Come visit us
+                or order online.
+            </p>
+            <button className="btn">Order now</button>
+        </div>
+    );
 }
 
 // React v18
