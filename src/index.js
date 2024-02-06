@@ -84,11 +84,20 @@ function Menu() {
             <h2>Our Menu</h2>
 
             {noPizzasChecker ? (
-                <ul className="pizzas">
-                    {pizzaData.map((pizza) => (
-                        <Pizza key={pizza.keyId} pizzaObj={pizza} />
-                    ))}
-                </ul>
+                <>
+                    <p>
+                        Welcome to the ultimate destination for pizza lovers.
+                        Here, you will find a variety of pizzas made with the
+                        finest ingredients, authentic recipes, and artisanal
+                        techniques.
+                    </p>
+
+                    <ul className="pizzas">
+                        {pizzaData.map((pizza) => (
+                            <Pizza key={pizza.keyId} pizzaObj={pizza} />
+                        ))}
+                    </ul>
+                </>
             ) : (
                 <p>
                     We're still working on our menu. Please come back later :)
